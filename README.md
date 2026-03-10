@@ -104,20 +104,18 @@ Make sure you've completed the [Development Setup](#development-setup) section.
 
 ```bash
 # Run the complete test suite
-./vendor/bin/phpunit
+./vendor/bin/phpunit --verbose --testdox
 
-# Expected output:
-# Tests: 261, Assertions: 967, Warnings: 46, Skipped: 13.
 ```
 
 #### Run Specific Tests
 
 ```bash
 # Run a single test file
-./vendor/bin/phpunit src/test/php/LoggerLevelTest.php
+./vendor/bin/phpunit --testdox src/test/php/LoggerLevelTest.php
 
 # Run tests for a specific component
-./vendor/bin/phpunit src/test/php/appenders/
+./vendor/bin/phpunit --testdox src/test/php/appenders/
 
 # Run with verbose output
 ./vendor/bin/phpunit --testdox
@@ -171,7 +169,7 @@ git checkout -b fix/your-bug-fix-name
 #### 3. Development Workflow
 
 ```bash
-# Install dependencies
+# Install dependencies and ignore mongo if you dont use it
 composer install --ignore-platform-req=ext-mongodb
 
 # Make your changes in src/main/php/
@@ -249,8 +247,17 @@ Before submitting, ensure all tests pass:
 # Stage your changes
 git add .
 
-# Commit with descriptive message
-git commit -m "Add feature: description of your changes"
+# Commit with descriptive message for features and changes
+git commit -m "feat: description of your changes"
+
+# Commit with descriptive message for bug fix 
+git commit -m "fix: description of your fix"
+
+# Commit with descriptive message for refactor
+git commit -m "refactor: description of your refactor"
+
+# Commit with descriptive message for any change or new doc
+git commit -m "docs: description of your refactor"
 
 # Push to your fork
 git push origin feature/your-feature-name
@@ -264,10 +271,10 @@ git push origin feature/your-feature-name
 
 Examples:
 ```
-Add support for custom appender configuration
-Fix timezone issue in date formatting
-Update LoggerLevel documentation
-Refactor LoggerConfigurator for better readability
+feat: Add support for custom appender configuration
+fix: Fix timezone issue in date formatting
+docs: Update LoggerLevel documentation
+refactor: Refactor LoggerConfigurator for better readability
 ```
 
 #### 8. Create a Pull Request
@@ -320,10 +327,10 @@ touch src/test/php/appenders/YourNewAppenderTest.php
 
 # 2. Write comprehensive tests
 # 3. Run your tests
-./vendor/bin/phpunit src/test/php/appenders/YourNewAppenderTest.php
+./vendor/bin/phpunit --testdox src/test/php/appenders/YourNewAppenderTest.php
 
 # 4. Run full suite to ensure no regressions
-./vendor/bin/phpunit
+./vendor/bin/phpunit --testdox
 ```
 
 ### Common Development Tasks
