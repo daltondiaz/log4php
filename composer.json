@@ -1,5 +1,5 @@
 {
-  "name": "simova-core/log4php",
+  "name": "daltondiaz/log4php",
   "description": "A versatile logging framework for PHP. Forked from apache/log4php",
   "keywords": [
     "log",
@@ -10,17 +10,24 @@
   "type": "library",
   "license": "Apache-2.0",
   "support": {
-    "issues": "https://github.com/joaomfrebelo/log4php/issues",
-    "source": "https://github.com/joaomfrebelo/log4php",
-    "email": "joaomfrebelo@gmail.com"
+    "issues": "https://github.com/daltondiaz/log4php/issues",
+    "source": "https://github.com/daltondiaz/log4php"
   },
+  "authors": [
+    {
+      "name": "André"
+    },
+    {
+      "name": "daltondiaz"
+    }
+  ],
   "autoload": {
     "classmap": [
       "src/main/php/"
     ]
   },
   "require": {
-    "php": "8.0.* || 8.1.* || 8.2.* || 8.3.*",
+    "php": "^8.0",
     "ext-libxml": "*",
     "ext-simplexml": "*",
     "mongodb/mongodb": "^2.0.0",
